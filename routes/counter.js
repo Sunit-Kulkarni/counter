@@ -1,2 +1,18 @@
 var express = require('express');
 var router = require.Router();
+
+var counter = 0;
+
+router.get('/', (req, res, next) => {
+	res.json({counter: counter});
+});
+
+router.post('/add', (req, res, next) => {
+	res.json({counter: counter});
+})
+
+router.post('/subtract', (req, res, next) => {
+	res.json({counter: counter});
+})
+
+module.exports = router;
