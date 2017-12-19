@@ -16,7 +16,13 @@ class Counter extends Component {
 
 	render() {
 		return (
-			<div></div>
+			<div>
+				<button>-</button>
+				0
+				<button>=</button>
+			</div>
 		);
 	}
 }
+
+export default Counter;

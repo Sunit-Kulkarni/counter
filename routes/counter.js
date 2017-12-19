@@ -1,5 +1,5 @@
 var express = require('express');
-var router = require.Router();
+var router = express.Router();
 
 var counter = 0;
 
