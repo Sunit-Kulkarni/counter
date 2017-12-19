@@ -8,10 +8,12 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/add', (req, res, next) => {
+	counter += 1;
 	res.json({counter: counter});
 })
 
 router.post('/subtract', (req, res, next) => {
+	counter -= 1;
 	res.json({counter: counter});
 })
 
