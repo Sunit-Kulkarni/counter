@@ -1,25 +1,51 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
+
 class Counter extends Component {
 	constructor() {
 		super();
-		this.state = {};
+		this.state = {
+			counter: 0
+		};
 	}
 
 	componentWillMount() {
-		axios.get('/')
+		axios.get('/counter')
 		.then(({ data }) => {
-			this.setState(data);
+			this.setState({
+				counter: data.counter
+			})
 		})
+	}
+
+	add() {
+		axios.post('/counter/add')
+		.then(({ data }) => {
+			this.setState({
+				counter: data.counter
+			});
+		});
+	}
+
+	subtract() {
+		axios.post('/counter/subtract')
+		.then(({ data }) => {
+			this.setState({
+				counter: data.counter
+			});
+		});
 	}
 
 	render() {
 		return (
 			<div>
-				<button>-</button>
-				0
-				<button>=</button>
+				<button onClick={this.subtract.bind(this)}>-</button>
+
+				{this.state.counter}
+
+				<button onClick={this.add.bind(this)}>+</button>
 			</div>
 		);
 	}
